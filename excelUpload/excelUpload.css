@@ -1,0 +1,31 @@
+
+.slds-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.slds-table th, .slds-table td {
+    border: 1px solid #d8dde6;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.response-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.response-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.response-text {
+    color: #333;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,48 @@
+<template>
+
+    <lightning-card title={title} icon-name="doctype:excel">
+
+        <lightning-input type="file" label={label} accept=".xlsx" onchange={uploadFile}></lightning-input>
+
+        <template if:true={showData}>
+
+            <template if:true={isLoading}>
+                <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+
+            <template for:each={responseData} for:item="response">
+                <div key={response.id} class="response-item">
+                    <p class="response-text">
+                        {response}
+                    </p>
+                </div>
+            </template>
+
+            <div class="slds-scrollable">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <!-- Display headers -->
+                            <template for:each={excelHeaders} for:item="header">
+                                <th key={header}>{header}</th>
+                            </template>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Display data rows -->
+                        <template for:each={excelData} for:item="row" key={row}>
+                            <tr key={row}>
+                                <template for:each={row} for:item="cell" key={cell}>
+                                    <td key={cell}>{cell}</td>
+                                </template>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+            <lightning-button variant="brand" label="Insert Lead" title="Insert Lead" onclick={insertLeadRecord}
+                class="slds-m-left_x-small"></lightning-button>
+        </template>
+
+    </lightning-card>
+</template>
